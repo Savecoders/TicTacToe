@@ -1,95 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-:root {
-	--bgPage: #4280ff;
-	--bgTictac: #e7e7e7;
-	--bgButtons: #2b2d42f1;
-	--colorSecondFont: #ffffff;
-	--font: 'Noto Sans KR', sans-serif;
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bgPage: #0c1633;
+		--bgTictac: #121f3d;
+		--bgButton: #98ca3f;
+		--colorFont: #e2e2e2;
+		--secunadryColorFont: #ffffff;
+		--font: 'Noto Sans KR', sans-serif;
+	}
+}
+@media (prefers-color-scheme: light) {
+	:root {
+		--bgPage: #ffffff;
+		--bgTictac: #fbefeded;
+		--bgButton: #4361ee;
+		--colorFont: #11151c;
+		--secunadryColorFont: #14213d;
+		--font: 'Noto Sans KR', sans-serif;
+	}
 }
 body {
-	background-color: var(--bgButtons);
 	display: flex;
-	text-align: center;
+	background-color: var(--bgPage);
 	justify-content: center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	height: 100%;
+	font-family: var(--font);
+}
+.container {
+	display: flex;
+	position: absolute;
+	top: 25%;
+	align-items: center;
+	flex-direction: column;
 }
 .board {
-	position: absolute;
-	top: 30%;
-	color: whitesmoke;
+	color: var(--colorFont);
 	display: grid;
-	grid-template: repeat(3, 11vh) / repeat(3, 11vh);
+	grid-template: repeat(3, 12vh) / repeat(3, 12vh);
 }
-.tics {
+.box {
 	display: flex;
 	align-items: center;
-	background-color: #383c58;
-	border-radius: 5%;
-	border: 0.2vh solid rgba(255, 255, 255, 0.356);
-	color: var(--colorSecondFont);
 	justify-content: center;
+	background-color: var(--bgTictac);
+	font-size: 1.5rem;
+	border-radius: 5%;
+	margin: 0.3vh;
 	cursor: pointer;
+}
+h1 {
+	color: var(--secunadryColorFont);
 	font-size: 2rem;
 }
-.menu {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 100%;
+button {
+	width: 12vh;
 	height: 6vh;
-	background-color: var(--background_menu);
-	box-shadow: 0.1rem 0.01rem 0.01rem 0.01rem var(--bg-shadow);
-}
-
-.menu .buttonDarkMode {
-	background-color: var(--bgButtons);
-	display: flex;
-	align-self: center;
-	justify-content: space-evenly;
-	padding: 0;
-	margin: 0;
-}
-.menu ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	display: flex;
-}
-.menu ul li a {
-	display: block;
-	padding: 6vh;
+	background-color: var(--bgButton);
 	font-family: var(--font);
-	text-decoration: none;
-	font-size: clamp(0.5rem, 3vw + 0.5rem, 1.2rem);
-	color: rgb(144, 47, 235);
-	font-weight: bold;
+	font-size: 1.1rem;
+	color: var(--bgPage);
+	letter-spacing: 0.1rem;
+	border: none;
+	border-radius: 10%;
+	cursor: pointer;
 }
-.menu .buttonMenuVar {
-	margin: 10;
-}
-.buttonMenuVar {
-	visibility: hidden;
-	display: none;
-}
-
-.menu a:hover {
-	color: blueviolet;
-}
-/* @media screen and (max-width: 700px) {
-	.menu ul {
-		visibility: hidden;
-		flex-direction: column;
-	}
-	.menu .buttonDarkMode {
-		visibility: hidden;
-	}
-	.menu .buttonMenuVar {
-		visibility: visible;
-		display: flex;
-		margin: 0;
-		background-color: var(--bgButtons);
-	}
-}
- */
